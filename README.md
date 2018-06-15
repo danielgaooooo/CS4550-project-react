@@ -1,3 +1,6 @@
+## This is the front end of my project.
+The back-end can be found [here](https://github.com/danielgaooooo/CS4550-project).
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
