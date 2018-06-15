@@ -45,10 +45,21 @@ class ExerciseService {
     }
 
     findExerciseById(id) {
-        return fetch(EXERCISE_API_URL + '&id=' + id)
+        return fetch('http://localhost:8080/api/exercise/' + id)
             .then(response => (
                 response.json()
             ))
+    }
+
+    addExercisesToLocalDatabase(exercises) {
+        return fetch('http://localhost:8080/api/exercise/search', {
+            method: 'POST',
+            body: JSON.stringify(exercises),
+            headers: {
+                'content-type': 'application/json'
+            }
+        })
+            .then(response => response.json())
     }
 }
 

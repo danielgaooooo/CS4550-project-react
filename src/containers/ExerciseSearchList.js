@@ -8,7 +8,9 @@ export default class ExerciseSearchList extends React.Component {
         super(props);
         this.state = {
             keyword: 'Abs',
-            exercises: []
+            exercises: [],
+            exerciseIdUpdated: false,
+            pleaseWait: false
         };
         this.service = ExerciseService.instance;
         this.keywordChanged = this.keywordChanged.bind(this);
@@ -25,20 +27,38 @@ export default class ExerciseSearchList extends React.Component {
     findExerciseByKeyword() {
         this.service.findExerciseByKeyword(this.state.keyword)
             .then(exercises => this.setState({
-                exercises: exercises.results
-            }));
+                exercises: exercises.results,
+                exerciseIdUpdated: false,
+                pleaseWait: true
+            }, this.addSearchResultsToLocalDatabase(exercises.results)));
+    }
+
+    addSearchResultsToLocalDatabase(exercises) {
+        this.service.addExercisesToLocalDatabase(
+            exercises.filter(exercise => exercise.name !== '')
+        ).then(response => this.setState({
+            exercises: response,
+            exerciseIdUpdated: true,
+            pleaseWait: false
+        }));
     }
 
     renderExercises() {
         let exercises = null;
-        if (this.state) {
+        if (this.state.exerciseIdUpdated) {
             exercises = this.state.exercises.map(exercise => {
                 if (exercise.name !== '') {
-                    return <li key={exercise.id}><Link to={`/search/${exercise.uuid}`}>{exercise.name}</Link></li>
+                    return <li key={exercise.id}><Link to={`/search/${exercise.id}`}>{exercise.name}</Link></li>
                 }
             });
         }
         return exercises;
+    }
+
+    renderPleaseWait() {
+        if (this.state.pleaseWait) {
+            return <h6>Fetching results...</h6>
+        }
     }
 
     render() {
@@ -61,6 +81,7 @@ export default class ExerciseSearchList extends React.Component {
                 </div>
                 <div>
                     {this.renderExercises()}
+                    {this.renderPleaseWait()}
                 </div>
                 <button onClick={this.findExerciseByKeyword}>Search</button>
             </div>

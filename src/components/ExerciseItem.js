@@ -13,12 +13,17 @@ export default class ExerciseItem extends React.Component {
     }
 
     componentDidMount() {
-        this.setExerciseId();
+        this.setExerciseId(this.props.match.params.exerciseId);
     }
 
-    setExerciseId() {
-        let id = this.props.match.params.exerciseId;
-        this.setState({id: id}, this.getExerciseById(id));
+    componentWillReceiveProps(newProps) {
+        if (newProps.match.params.exerciseId !== this.state.id) {
+            this.setExerciseId(newProps.match.params.exerciseId);
+        }
+    }
+
+    setExerciseId(newId) {
+        this.setState({id: newId}, this.getExerciseById(newId));
     }
 
     getExerciseById(id) {
@@ -27,12 +32,25 @@ export default class ExerciseItem extends React.Component {
     }
 
     renderExercise() {
+        let newDesc;
+        let newName;
+        if (this.state.exercise.description !== undefined) {
+            newDesc = this.state.exercise.description.replace('<p>', '').replace('</p>', '');
+            newName = this.state.exercise.name;
+        }
         return (
             <div>
-                <h2>
+                <h3>
+                    Name
+                </h3>
+                {newName}
+                <h3>
                     Description
-                </h2>
-                {this.state.exercise.description}
+                </h3>
+                {newDesc}
+                <button>
+                    Add to workout
+                </button>
             </div>
         )
     }
@@ -41,6 +59,7 @@ export default class ExerciseItem extends React.Component {
         return (
             <div className='container-fluid'>
                 <h1>Exercise Item</h1>
+                {this.renderExercise()}
             </div>
         )
     }
