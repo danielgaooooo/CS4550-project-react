@@ -1,6 +1,7 @@
 let _singleton = Symbol();
 
 let EXERCISE_API_URL = 'https://wger.de/api/v2/exercise/?language=2';
+let HEROKU_URL = 'https://cs4550-project.herokuapp.com';
 
 class ExerciseService {
     constructor(singletonToken) {
@@ -45,14 +46,14 @@ class ExerciseService {
     }
 
     findExerciseById(id) {
-        return fetch('http://localhost:8080/api/exercise/' + id)
+        return fetch(HEROKU_URL + '/api/exercise/' + id)
             .then(response => (
                 response.json()
             ))
     }
 
     addExercisesToLocalDatabase(exercises) {
-        return fetch('http://localhost:8080/api/exercise/search', {
+        return fetch(HEROKU_URL + '/api/exercise/search', {
             method: 'POST',
             body: JSON.stringify(exercises),
             headers: {
