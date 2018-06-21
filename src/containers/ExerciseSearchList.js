@@ -64,6 +64,7 @@ export default class ExerciseSearchList extends React.Component {
     render() {
         return (
             <div className='container-fluid'>
+
                 <h1>Exercise search</h1>
                 <div className="form-group">
                     <label>Example select</label>
