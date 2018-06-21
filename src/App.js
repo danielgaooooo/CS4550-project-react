@@ -5,6 +5,8 @@ import ExerciseManager from "./containers/ExerciseManager";
 import LoginComponent from "./containers/LoginComponent";
 import RegisterComponent from "./containers/RegisterComponent";
 import ProfileComponent from "./containers/ProfileComponent";
+import UserList from "./containers/UserList";
+
 
 export default class App extends React.Component {
 
@@ -21,6 +23,8 @@ export default class App extends React.Component {
                     <Route path='/register' component={RegisterComponent}>
                     </Route>
                     <Route path='/profile' component={ProfileComponent}>
+                    </Route>
+                    <Route path='/users' component={UserList}>
                     </Route>
                 </div>
             </Router>

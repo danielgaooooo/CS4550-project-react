@@ -35,7 +35,9 @@ export default class ExerciseItem extends React.Component {
         let newDesc;
         let newName;
         if (this.state.exercise.description !== undefined) {
-            newDesc = this.state.exercise.description.replace('<p>', '').replace('</p>', '');
+            newDesc = this.state.exercise.description
+                .replace('<p>', '').replace('</p>', '')
+                .replace('<li>', '').replace('</li>', '');
             newName = this.state.exercise.name;
         }
         return (
@@ -47,7 +49,7 @@ export default class ExerciseItem extends React.Component {
                 <h3>
                     Description
                 </h3>
-                {newDesc}
+                <div dangerouslySetInnerHTML={{__html: newDesc}}/>
                 <button>
                     Add to workout
                 </button>
@@ -57,8 +59,14 @@ export default class ExerciseItem extends React.Component {
 
     render() {
         return (
-            <div className='container-fluid'>
-                <h1>Exercise Item</h1>
+            <div>
+                <div style={{backgroundColor: '#80bfff'}}>
+                    <div style={{paddingTop: 15, paddingBottom: 15}} className='container-fluid'>
+                        <h3>
+                            Exercise Description &nbsp;
+                        </h3>
+                    </div>
+                </div>
                 {this.renderExercise()}
             </div>
         )

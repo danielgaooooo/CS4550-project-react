@@ -9,36 +9,44 @@ export default class ExerciseManager extends React.Component {
     render() {
         return (
             <div>
-                <div style={{backgroundColor: 'thistle'}}>
+                <div style={{backgroundColor: '#3399ff'}}>
                     <div style={{padding: 20}}>
                         <header>
                             <h1>Workout Tool</h1>
                         </header>
                         <div className='row container-fluid'>
-                            <Link style={{paddingRight: 20}} to={`/`}>
+                            <Link style={{paddingRight: 20, color: 'white'}}
+                                  to={`/`}>
                                 <i className="fa fa-home"></i> Home
                             </Link>
-                            <Link style={{paddingRight: 20, paddingLeft: 20}} to={`login`}>
+                            <Link style={{paddingRight: 20, paddingLeft: 20, color: 'white'}}
+                                  to={`/login`}>
                                 <i className="fa fa-sign-in"></i> Login
                             </Link>
-                            <Link style={{paddingRight: 20, paddingLeft: 20}} to={`register`}>
+                            <Link style={{paddingRight: 20, paddingLeft: 20, color: 'white'}}
+                                  to={`/register`}>
                                 <i className="fa fa-user-plus"></i> Register
                             </Link>
-                            <Link style={{paddingLeft: 20}} to={`search`}>
+                            <Link style={{paddingRight: 20, paddingLeft: 20, color: 'white'}}
+                                  to={`/search`}>
                                 <i className="fa fa-search"></i> Search for exercises
+                            </Link>
+                            <Link style={{paddingLeft: 20, color: 'white'}}
+                                  to={`users`}>
+                                <i className="fa fa-search"></i> Find friends
                             </Link>
                         </div>
                     </div>
                 </div>
                 <div className="row">
-                    <div className="col-4">
+                    <div style={{paddingRight: 0}} className="col-4">
                         <ExerciseSearchList/>
                     </div>
-                    <div className="col-4">
+                    <div style={{paddingRight: 0, paddingLeft: 0}} className="col-4">
                         <Route path='/search/:exerciseId' component={ExerciseItem}>
                         </Route>
                     </div>
-                    <div className="col-4">
+                    <div style={{paddingLeft: 0}} className="col-4">
                         <Route path='/search/:exerciseId' component={WorkoutEditor}>
                         </Route>
                     </div>

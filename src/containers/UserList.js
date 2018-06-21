@@ -1,8 +1,36 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Link} from 'react-router-dom'
+import UserService from "../services/UserService";
 
+export default class UserList extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            users: []
+        };
+        this.service = UserService.instance;
+        this.findAllUsers = this.findAllUsers.bind(this);
+    }
 
-export default class ProfileComponent extends React.Component {
+    findAllUsers() {
+        this.service.findAllUsers()
+            .then(response => this.setState({users: response}));
+    }
+
+    componentDidMount() {
+        this.findAllUsers();
+    }
+
+    renderUsers() {
+        let users = null;
+        if (this.state) {
+            users = this.state.users.map(
+                (user) => <li className='list-group-item'
+                              key={user.id}>{user.username}</li>
+            );
+        }
+        return users;
+    }
 
     render() {
         return (
@@ -36,12 +64,10 @@ export default class ProfileComponent extends React.Component {
                         </div>
                     </div>
                 </div>
-                <div style={{backgroundColor: '#80bfff'}}>
-                    <div style={{paddingTop: 15, paddingBottom: 15}} className='container-fluid'>
-                        <h3>
-                            Profile
-                        </h3>
-                    </div>
+                <div>
+                    <ul className='list-group'>
+                        {this.renderUsers()}
+                    </ul>
                 </div>
             </div>
         )

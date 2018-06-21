@@ -63,28 +63,35 @@ export default class ExerciseSearchList extends React.Component {
 
     render() {
         return (
-            <div className='container-fluid'>
-
-                <h1>Exercise search</h1>
-                <div className="form-group">
-                    <label>Example select</label>
-                    <select className="form-control"
-                            onChange={this.keywordChanged}
-                            id="exampleFormControlSelect1">
-                        <option>Abs</option>
-                        <option>Arms</option>
-                        <option>Back</option>
-                        <option>Calves</option>
-                        <option>Shoulders</option>
-                        <option>Legs</option>
-                        <option>Chest</option>
-                    </select>
+            <div>
+                <div style={{backgroundColor: '#80bfff'}}>
+                        <div style={{paddingTop: 15, paddingBottom: 15}} className='container-fluid'>
+                            <h3>
+                                Search for exercises
+                            </h3>
+                        </div>
                 </div>
-                <div>
-                    {this.renderExercises()}
-                    {this.renderPleaseWait()}
+                <div className='container-fluid'>
+                    <div className="form-group">
+                        <label>Example select</label>
+                        <select className="form-control"
+                                onChange={this.keywordChanged}
+                                id="exampleFormControlSelect1">
+                            <option>Abs</option>
+                            <option>Arms</option>
+                            <option>Back</option>
+                            <option>Calves</option>
+                            <option>Shoulders</option>
+                            <option>Legs</option>
+                            <option>Chest</option>
+                        </select>
+                    </div>
+                    <div>
+                        {this.renderExercises()}
+                        {this.renderPleaseWait()}
+                    </div>
+                    <button onClick={this.findExerciseByKeyword}>Search</button>
                 </div>
-                <button onClick={this.findExerciseByKeyword}>Search</button>
             </div>
         )
     }

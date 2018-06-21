@@ -25,9 +25,13 @@ export default class Home extends React.Component {
                                   to={`register`}>
                                 <i className="fa fa-user-plus"></i> Register
                             </Link>
-                            <Link style={{paddingLeft: 20, color: 'white'}}
+                            <Link style={{paddingRight: 20, paddingLeft: 20, color: 'white'}}
                                   to={`search`}>
                                 <i className="fa fa-search"></i> Search for exercises
+                            </Link>
+                            <Link style={{paddingLeft: 20, color: 'white'}}
+                                  to={`users`}>
+                                <i className="fa fa-search"></i> Find friends
                             </Link>
                         </div>
                     </div>
