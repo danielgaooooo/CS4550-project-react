@@ -15,18 +15,23 @@ class UserService {
     }
 
     findAllUsers() {
-        return fetch(HEROKU_URL + '/api/user')
+        return fetch(HEROKU_URL + '/api/user', {
+            credentials: 'include'
+        })
             .then(response => response.json());
     }
 
     findUserById(id) {
-        return fetch(HEROKU_URL + '/api/user/' + id)
+        return fetch(HEROKU_URL + '/api/user/' + id, {
+            credentials: 'include'
+        })
             .then(response => response.json());
     }
 
     updateUser(userId, user) {
         return fetch(HEROKU_URL + '/api/user/' + userId, {
             method: 'put',
+            credentials: 'include',
             body: JSON.stringify(user),
             headers: {
                 'content-type': 'application/json'
@@ -37,13 +42,15 @@ class UserService {
 
     deleteUser(userId) {
         return fetch(HEROKU_URL + '/api/user/' + userId, {
-            method: 'delete'
+            method: 'delete',
+            credentials: 'include'
         });
     }
 
     login(user) {
         return fetch(HEROKU_URL + '/api/login', {
             method: 'post',
+            credentials: 'include',
             body: JSON.stringify(user),
             headers: {
                 'content-type': 'application/json'
@@ -57,6 +64,7 @@ class UserService {
     logout() {
         return fetch(HEROKU_URL + '/api/logout', {
             method: 'post',
+            credentials: 'include',
             headers: {
                 'content-type': 'application/json'
             }
@@ -64,13 +72,16 @@ class UserService {
     }
 
     findUserByUsername(username) {
-        return fetch(HEROKU_URL + '/api/register/' + username)
+        return fetch(HEROKU_URL + '/api/register/' + username, {
+            credentials: 'include'
+        })
             .then(response => response.json());
     }
 
     register(user) {
         return fetch(HEROKU_URL + '/api/register', {
             method: 'post',
+            credentials: 'include',
             body: JSON.stringify(user),
             headers: {
                 'content-type': 'application/json'
@@ -80,7 +91,9 @@ class UserService {
     }
 
     profile() {
-        return fetch(HEROKU_URL + '/api/profile')
+        return fetch(HEROKU_URL + '/api/profile', {
+            credentials: 'include',
+        })
             .then(response => response.json());
     }
 

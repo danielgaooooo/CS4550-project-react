@@ -39,14 +39,18 @@ class ExerciseService {
             case "Chest":
                 val = 11;
         }
-        return fetch(EXERCISE_API_URL + '&category=' + val)
+        return fetch(EXERCISE_API_URL + '&category=' + val, {
+            credentials: 'include'
+        })
             .then(response => (
                 response.json()
             ))
     }
 
     findExerciseById(id) {
-        return fetch(HEROKU_URL + '/api/exercise/' + id)
+        return fetch(HEROKU_URL + '/api/exercise/' + id, {
+            credentials: "include"
+        })
             .then(response => (
                 response.json()
             ))
@@ -55,6 +59,7 @@ class ExerciseService {
     addExercisesToLocalDatabase(exercises) {
         return fetch(HEROKU_URL + '/api/exercise/search', {
             method: 'POST',
+            credentials: 'include',
             body: JSON.stringify(exercises),
             headers: {
                 'content-type': 'application/json'
