@@ -65,6 +65,16 @@ class ExerciseService {
         })
             .then(response => response.json())
     }
+
+    addExerciseToWorkout(exerciseId, workoutId) {
+        return fetch(HEROKU_URL + '/api/workout/' + workoutId + '/exercise/' + exerciseId, {
+            headers: {
+                'content-type': 'application/json'
+            },
+            method: 'POST',
+            credentials: 'include'
+        }).then(response => response.json());
+    }
 }
 
 export default ExerciseService;

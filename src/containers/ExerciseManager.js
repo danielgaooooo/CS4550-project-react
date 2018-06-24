@@ -95,17 +95,46 @@ export default class ExerciseManager extends React.Component {
                         </div>
                     </div>
                 </div>
-                <div className="row">
-                    <div style={{paddingRight: 0}} className="col-4">
-                        <WorkoutEditor/>
+                <div hidden={!this.state.loggedIn}>
+                    <div className="row">
+                        <div style={{paddingRight: 0}} className="col-4">
+                            <WorkoutEditor/>
+                        </div>
+                        <div style={{paddingLeft: 0, paddingRight: 0}} className="col-4">
+                            <Route path='/search/:workoutId' component={ExerciseSearchList}>
+                            </Route>
+                        </div>
+                        <div style={{paddingRight: 0, paddingLeft: 0}} className="col-4">
+                            <Route path='/search/:workoutId/exercise/:exerciseId' component={ExerciseItem}>
+                            </Route>
+                        </div>
                     </div>
-                    <div style={{paddingLeft: 0, paddingRight: 0}} className="col-4">
-                        <Route path='/search/:workoutId' component={ExerciseSearchList}>
-                        </Route>
-                    </div>
-                    <div style={{paddingRight: 0, paddingLeft: 0}} className="col-4">
-                        <Route path='/search/:workoutId/exercise/:exerciseId' component={ExerciseItem}>
-                        </Route>
+                </div>
+                <div hidden={this.state.loggedIn}>
+                    <div className="row">
+                        <div style={{paddingRight: 0}} className="col-4">
+                            <div style={{backgroundColor: '#80bfff'}}>
+                                <div style={{paddingTop: 15, paddingBottom: 15}} className='container-fluid'>
+                                    <h3>
+                                        Sign in to save workouts
+                                    </h3>
+                                </div>
+                            </div>
+                            <div style={{paddingTop: 20}} className='container-fluid'>
+                                <p>
+                                    In order to create and update your own custom workouts,
+                                    either register above, or log in if you already have an account.
+                                </p>
+                            </div>
+                        </div>
+                        <div style={{paddingLeft: 0, paddingRight: 0}} className="col-4">
+                            <Route path='/search' component={ExerciseSearchList}>
+                            </Route>
+                        </div>
+                        <div style={{paddingRight: 0, paddingLeft: 0}} className="col-4">
+                            <Route path='/search/:workoutId/exercise/:exerciseId' component={ExerciseItem}>
+                            </Route>
+                        </div>
                     </div>
                 </div>
             </div>

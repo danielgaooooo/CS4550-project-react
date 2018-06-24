@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import UserService from "../services/UserService";
+import WorkoutService from "../services/WorkoutService";
 
 
 export default class ProfileComponent extends React.Component {
@@ -29,7 +30,10 @@ export default class ProfileComponent extends React.Component {
         this.changeEmail = this.changeEmail.bind(this);
         this.changePhone = this.changePhone.bind(this);
         this.updateUser = this.updateUser.bind(this);
+        this.renderWorkouts = this.renderWorkouts.bind(this);
+        this.renderWorkoutExercises = this.renderWorkoutExercises.bind(this);
         this.service = UserService.instance;
+        this.workoutService = WorkoutService.instance;
     }
 
     updateUser() {
@@ -139,6 +143,49 @@ export default class ProfileComponent extends React.Component {
     componentDidMount() {
         let userId = this.props.match.params.userId;
         this.newUser(userId);
+        this.workoutService.findAllWorkoutsForUser(userId)
+            .then(workouts => this.setState({
+                user: {
+                    username: this.state.user.username,
+                    firstName: this.state.user.firstName,
+                    lastName: this.state.user.lastName,
+                    email: this.state.user.email,
+                    phone: this.state.user.phone,
+                    workouts: workouts
+                }
+            }))
+    }
+
+    renderWorkouts() {
+        let workouts = null;
+        if (this.state) {
+            workouts = this.state.user.workouts.map(
+                (workout) =>
+                    <div style={{paddingTop: 10}} key={workout.id}>
+                        <h5 className='list-group-item'>
+                            {workout.name}
+                        </h5>
+                        <ul className='list-group'>
+                            {this.renderWorkoutExercises(workout)}
+                        </ul>
+                    </div>
+            );
+        }
+        return workouts;
+    }
+
+    renderWorkoutExercises(workout) {
+        let exercises = null;
+        if (this.state) {
+            exercises = workout.exercises.map(
+                exercise =>
+                    <li className='list-group-item'
+                        key={exercise.id}>
+                        {exercise.name}
+                    </li>
+            )
+        }
+        return exercises;
     }
 
     render() {
@@ -222,7 +269,7 @@ export default class ProfileComponent extends React.Component {
                             <div className="form-group row">
                                 <label className="col-2">Workouts:</label>
                                 <div className="col-10">
-                                    None listed yet
+                                    {this.renderWorkouts()}
                                 </div>
                             </div>
                         </form>
@@ -275,7 +322,7 @@ export default class ProfileComponent extends React.Component {
                             <div className="form-group row">
                                 <label className="col-2">Workouts:</label>
                                 <div className="col-10">
-                                    None listed yet
+                                    {this.renderWorkouts()}
                                 </div>
                             </div>
                         </form>

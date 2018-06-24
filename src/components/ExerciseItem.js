@@ -5,15 +5,18 @@ export default class ExerciseItem extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            id: '',
+            exerciseId: '',
+            workoutId: '',
             exercise: ''
         };
         this.service = ExerciseService.instance;
         this.renderExercise = this.renderExercise.bind(this);
+        this.addExerciseToWorkout = this.addExerciseToWorkout.bind(this);
     }
 
     componentDidMount() {
         this.setExerciseId(this.props.match.params.exerciseId);
+        this.setWorkoutId(this.props.match.params.workoutId);
     }
 
     componentWillReceiveProps(newProps) {
@@ -22,8 +25,17 @@ export default class ExerciseItem extends React.Component {
         }
     }
 
+    addExerciseToWorkout() {
+        this.service.addExerciseToWorkout(this.state.exerciseId, this.state.workoutId)
+            .then(() => alert('Successfully added.'))
+    }
+
     setExerciseId(newId) {
-        this.setState({id: newId}, this.getExerciseById(newId));
+        this.setState({exerciseId: newId}, this.getExerciseById(newId));
+    }
+
+    setWorkoutId(newId) {
+        this.setState({workoutId: newId});
     }
 
     getExerciseById(id) {
@@ -58,7 +70,8 @@ export default class ExerciseItem extends React.Component {
                          dangerouslySetInnerHTML={{__html: newDesc}}/>
                 </div>
                 <div className='container-fluid'>
-                    <button className='btn btn-primary'>
+                    <button className='btn btn-primary'
+                            onClick={this.addExerciseToWorkout}>
                         Add to workout
                     </button>
                 </div>

@@ -95,7 +95,7 @@ export default class ExerciseSearchList extends React.Component {
                             <option>Chest</option>
                         </select>
                     </div>
-                    <div>
+                    <div style={{paddingBottom: 10}}>
                         {this.renderExercises()}
                         {this.renderPleaseWait()}
                     </div>

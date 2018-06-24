@@ -31,7 +31,10 @@ export default class Home extends React.Component {
                             admin: user.username === 'admin'
                         }))
                 } else {
-                    this.setState({loggedIn: false})
+                    this.setState({
+                        loggedIn: false,
+                        admin: false
+                    })
                 }
             })
     }
