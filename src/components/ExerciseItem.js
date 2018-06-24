@@ -42,17 +42,26 @@ export default class ExerciseItem extends React.Component {
         }
         return (
             <div>
-                <h3>
-                    Name
-                </h3>
-                {newName}
-                <h3>
-                    Description
-                </h3>
-                <div dangerouslySetInnerHTML={{__html: newDesc}}/>
-                <button>
-                    Add to workout
-                </button>
+                <div style={{paddingTop: 20}}
+                     className='container-fluid'>
+                    <h4>
+                        Name
+                    </h4>
+                    {newName}
+                </div>
+                <div style={{paddingTop: 20}}
+                     className='container-fluid'>
+                    <h4>
+                        Description
+                    </h4>
+                    <div style={{paddingBottom: 20}}
+                         dangerouslySetInnerHTML={{__html: newDesc}}/>
+                </div>
+                <div className='container-fluid'>
+                    <button className='btn btn-primary'>
+                        Add to workout
+                    </button>
+                </div>
             </div>
         )
     }

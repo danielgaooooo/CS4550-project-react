@@ -6,6 +6,7 @@ import LoginComponent from "./containers/LoginComponent";
 import RegisterComponent from "./containers/RegisterComponent";
 import ProfileComponent from "./containers/ProfileComponent";
 import UserList from "./containers/UserList";
+import AdminPage from "./containers/AdminPage";
 
 
 export default class App extends React.Component {
@@ -22,9 +23,11 @@ export default class App extends React.Component {
                     </Route>
                     <Route path='/register' component={RegisterComponent}>
                     </Route>
-                    <Route path='/profile' component={ProfileComponent}>
+                    <Route path='/profile/:userId' component={ProfileComponent}>
                     </Route>
                     <Route path='/users' component={UserList}>
+                    </Route>
+                    <Route path='/admin' component={AdminPage}>
                     </Route>
                 </div>
             </Router>

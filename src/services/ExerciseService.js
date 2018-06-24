@@ -39,9 +39,7 @@ class ExerciseService {
             case "Chest":
                 val = 11;
         }
-        return fetch(EXERCISE_API_URL + '&category=' + val, {
-            credentials: 'include'
-        })
+        return fetch(EXERCISE_API_URL + '&category=' + val)
             .then(response => (
                 response.json()
             ))

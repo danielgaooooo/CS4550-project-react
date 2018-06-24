@@ -1,23 +1,36 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 import UserService from "../services/UserService";
+import {Link} from 'react-router-dom'
 
-export default class Home extends React.Component {
+export default class AdminPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            users: [],
             loggedIn: false,
             userId: '',
-            admin: false
+            admin: true
         };
         this.service = UserService.instance;
-        this.logout = this.logout.bind(this);
+        this.findAllUsers = this.findAllUsers.bind(this);
+        this.delete = this.delete.bind(this);
         this.checkIfLoggedIn = this.checkIfLoggedIn.bind(this);
+        this.logout = this.logout.bind(this);
+    }
+
+    delete(userId) {
+        this.service.deleteUser(userId)
+            .then(() => this.findAllUsers())
     }
 
     logout() {
         this.service.logout()
-            .then(this.checkIfLoggedIn);
+            .then(this.props.history.push('/'));
+    }
+
+    findAllUsers() {
+        this.service.findAllUsers()
+            .then(response => this.setState({users: response}));
     }
 
     checkIfLoggedIn() {
@@ -26,18 +39,40 @@ export default class Home extends React.Component {
                 if (response.username !== null) {
                     this.setState({loggedIn: true});
                     this.service.profile()
-                        .then(user => this.setState({
-                            userId: user.id,
-                            admin: user.username === 'admin'
-                        }))
-                } else {
-                    this.setState({loggedIn: false})
+                        .then(user => this.setState({userId: user.id}))
                 }
             })
     }
 
     componentDidMount() {
+        this.findAllUsers();
         this.checkIfLoggedIn();
+    }
+
+    renderUsers() {
+        let users = null;
+        if (this.state) {
+            users = this.state.users.map(
+                (user) =>
+                    <li className='list-group-item'
+                        key={user.id}>
+                        {user.username}
+                        <Link to={`/profile/${user.id}`}>
+                            <button className='btn btn-primary float-right'
+                                    type='button'>
+                                View
+                            </button>
+                        </Link>
+                        <a className='float-right'>&nbsp;</a>
+                        <button className='btn btn-danger float-right'
+                                onClick={() => this.delete(user.id)}
+                                type='button'>
+                            Delete
+                        </button>
+                    </li>
+            );
+        }
+        return users;
     }
 
     render() {
@@ -95,48 +130,11 @@ export default class Home extends React.Component {
                     </div>
                 </div>
                 <div>
-                    <div style={{backgroundColor: '#80bfff'}}>
-                        <div style={{paddingTop: 15, paddingBottom: 15}} className='container-fluid'>
-                            <h3>
-                                Welcome to the world's greatest, easiest, and best-looking workout creator
-                                and organizer!
-                            </h3>
-                        </div>
-                    </div>
-                    <div style={{backgroundColor: '#cce6ff', paddingTop: 20, paddingBottom: 40}}>
-                        <div className='container-fluid'>
-                            <div style={{paddingTop: 10}} className='row'>
-                                <div className='col-4'>
-                                    <p>
-                                        With a completely free account, users can:
-                                    </p>
-                                </div>
-                                <div className='col-8'>
-                                    <ul>
-                                        <li>
-                                            Create workouts with exercises from our database
-                                        </li>
-                                        <li>
-                                            Save and access previous workouts
-                                        </li>
-                                        <li>
-                                            Add their own exercises to their workouts
-                                        </li>
-                                        <li>
-                                            Follow other users and check out their workouts
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <p>
-                                To get started, just register with the link above, or log in if you are
-                                already a member.
-                            </p>
-                        </div>
-                    </div>
+                    <ul className='list-group'>
+                        {this.renderUsers()}
+                    </ul>
                 </div>
             </div>
-
         )
     }
 }

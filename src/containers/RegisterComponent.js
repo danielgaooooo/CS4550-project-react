@@ -33,7 +33,7 @@ export default class RegisterComponent extends React.Component {
                         alert('This username has already been taken. Please choose another.');
                     } else {
                         this.service.register(user)
-                            .then(() => alert('successfully registered'));
+                            .then(() => this.props.history.push('/login'));
                     }
                 });
         } else {
@@ -82,10 +82,10 @@ export default class RegisterComponent extends React.Component {
                             </Link>
                             <Link style={{paddingRight: 20, paddingLeft: 20, color: 'white'}}
                                   to={`/search`}>
-                                <i className="fa fa-search"></i> Search for exercises
+                                <i className="fa fa-search"></i> Workout Editor
                             </Link>
                             <Link style={{paddingLeft: 20, color: 'white'}}
-                                  to={`users`}>
+                                  to={`/users`}>
                                 <i className="fa fa-search"></i> Find friends
                             </Link>
                         </div>
@@ -131,7 +131,7 @@ export default class RegisterComponent extends React.Component {
                         <button onClick={this.register}
                                 type="button"
                                 className="btn btn-primary btn-block">
-                            Log in!
+                            Register
                         </button>
                         <p>Don't have an account? Register with the link above!</p>
                     </form>

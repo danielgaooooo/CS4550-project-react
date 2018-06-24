@@ -28,7 +28,7 @@ class UserService {
             .then(response => response.json());
     }
 
-    updateUser(userId, user) {
+    updateUser(user, userId) {
         return fetch(HEROKU_URL + '/api/user/' + userId, {
             method: 'put',
             credentials: 'include',
@@ -92,11 +92,17 @@ class UserService {
 
     profile() {
         return fetch(HEROKU_URL + '/api/profile', {
-            credentials: 'include',
+            credentials: 'include'
         })
             .then(response => response.json());
     }
 
+    checkIfLoggedIn() {
+        return fetch(HEROKU_URL + '/api/user/loggedIn', {
+            credentials: 'include'
+        })
+            .then(response => response.json())
+    }
 }
 
 export default UserService;

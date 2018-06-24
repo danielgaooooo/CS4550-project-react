@@ -30,7 +30,7 @@ export default class LoginComponent extends React.Component {
                     if (response.password === '' && response.username === '') {
                         alert('Your username or password are incorrect.');
                     } else {
-                        alert('success');
+                        this.props.history.push('/profile/' + response.id)
                     }
                 });
         } else {
@@ -73,10 +73,10 @@ export default class LoginComponent extends React.Component {
                             </Link>
                             <Link style={{paddingRight: 20, paddingLeft: 20, color: 'white'}}
                                   to={`/search`}>
-                                <i className="fa fa-search"></i> Search for exercises
+                                <i className="fa fa-search"></i> Workout Editor
                             </Link>
                             <Link style={{paddingLeft: 20, color: 'white'}}
-                                  to={`users`}>
+                                  to={`/users`}>
                                 <i className="fa fa-search"></i> Find friends
                             </Link>
                         </div>

@@ -10,12 +10,18 @@ export default class ExerciseSearchList extends React.Component {
             keyword: 'Abs',
             exercises: [],
             exerciseIdUpdated: false,
-            pleaseWait: false
+            pleaseWait: false,
+            workoutId: ''
         };
         this.service = ExerciseService.instance;
         this.keywordChanged = this.keywordChanged.bind(this);
         this.findExerciseByKeyword = this.findExerciseByKeyword.bind(this);
         this.renderExercises = this.renderExercises.bind(this);
+    }
+
+    componentDidMount() {
+        let workoutId = this.props.match.params.workoutId;
+        this.setState({workoutId: workoutId})
     }
 
     keywordChanged(event) {
@@ -46,9 +52,13 @@ export default class ExerciseSearchList extends React.Component {
     renderExercises() {
         let exercises = null;
         if (this.state.exerciseIdUpdated) {
-            exercises = this.state.exercises.map(exercise => {
+            exercises = this.state.exercises.map((exercise, index) => {
                 if (exercise.name !== '') {
-                    return <li key={exercise.id}><Link to={`/search/${exercise.id}`}>{exercise.name}</Link></li>
+                    return <li key={index}>
+                        <Link to={`/search/${this.state.workoutId}/exercise/${exercise.id}`}>
+                            {exercise.name}
+                        </Link>
+                    </li>
                 }
             });
         }
@@ -65,15 +75,14 @@ export default class ExerciseSearchList extends React.Component {
         return (
             <div>
                 <div style={{backgroundColor: '#80bfff'}}>
-                        <div style={{paddingTop: 15, paddingBottom: 15}} className='container-fluid'>
-                            <h3>
-                                Search for exercises
-                            </h3>
-                        </div>
+                    <div style={{paddingTop: 15, paddingBottom: 15}} className='container-fluid'>
+                        <h3>
+                            Search for exercises &nbsp; &nbsp;
+                        </h3>
+                    </div>
                 </div>
-                <div className='container-fluid'>
+                <div style={{paddingTop: 20}} className='container-fluid'>
                     <div className="form-group">
-                        <label>Example select</label>
                         <select className="form-control"
                                 onChange={this.keywordChanged}
                                 id="exampleFormControlSelect1">
@@ -90,7 +99,9 @@ export default class ExerciseSearchList extends React.Component {
                         {this.renderExercises()}
                         {this.renderPleaseWait()}
                     </div>
-                    <button onClick={this.findExerciseByKeyword}>Search</button>
+                    <button
+                        className='btn btn-primary btn-block'
+                        onClick={this.findExerciseByKeyword}>Search</button>
                 </div>
             </div>
         )
