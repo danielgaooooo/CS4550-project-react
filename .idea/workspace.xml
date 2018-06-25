@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87644280-68ac-499f-9cef-764f63318bac" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/containers/AdminPage.js" afterPath="$PROJECT_DIR$/src/containers/AdminPage.js" />
-      <change beforePath="$PROJECT_DIR$/src/containers/ExerciseManager.js" afterPath="$PROJECT_DIR$/src/containers/ExerciseManager.js" />
-      <change beforePath="$PROJECT_DIR$/src/containers/Home.js" afterPath="$PROJECT_DIR$/src/containers/Home.js" />
-      <change beforePath="$PROJECT_DIR$/src/containers/LoginComponent.js" afterPath="$PROJECT_DIR$/src/containers/LoginComponent.js" />
-      <change beforePath="$PROJECT_DIR$/src/containers/ProfileComponent.js" afterPath="$PROJECT_DIR$/src/containers/ProfileComponent.js" />
-      <change beforePath="$PROJECT_DIR$/src/containers/RegisterComponent.js" afterPath="$PROJECT_DIR$/src/containers/RegisterComponent.js" />
-      <change beforePath="$PROJECT_DIR$/src/containers/UserList.js" afterPath="$PROJECT_DIR$/src/containers/UserList.js" />
+      <change beforePath="$PROJECT_DIR$/src/services/ExerciseService.js" afterPath="$PROJECT_DIR$/src/services/ExerciseService.js" />
+      <change beforePath="$PROJECT_DIR$/src/services/UserService.js" afterPath="$PROJECT_DIR$/src/services/UserService.js" />
+      <change beforePath="$PROJECT_DIR$/src/services/WorkoutService.js" afterPath="$PROJECT_DIR$/src/services/WorkoutService.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -22,11 +18,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="WorkoutEditor.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="WorkoutEditor.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/containers/WorkoutEditor.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-205">
-              <caret line="74" column="5" lean-forward="true" selection-start-line="74" selection-start-column="5" selection-end-line="74" selection-end-column="5" />
+            <state relative-caret-position="200">
+              <caret line="101" column="49" lean-forward="true" selection-start-line="101" selection-start-column="49" selection-end-line="101" selection-end-column="49" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -59,30 +55,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1260">
               <caret line="104" column="22" lean-forward="true" selection-start-line="104" selection-start-column="22" selection-end-line="104" selection-end-column="22" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ExerciseManager.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/containers/ExerciseManager.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="166">
-              <caret line="77" column="70" lean-forward="false" selection-start-line="77" selection-start-column="70" selection-end-line="77" selection-end-column="70" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WorkoutItem.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/WorkoutItem.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
-              <caret line="31" column="86" lean-forward="true" selection-start-line="31" selection-start-column="86" selection-end-line="31" selection-end-column="86" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -124,11 +96,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AdminPage.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/containers/AdminPage.js">
+      <file leaf-file-name="ExerciseService.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/services/ExerciseService.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="369">
-              <caret line="116" column="70" lean-forward="false" selection-start-line="116" selection-start-column="65" selection-end-line="116" selection-end-column="70" />
+            <state relative-caret-position="45">
+              <caret line="3" column="54" lean-forward="false" selection-start-line="3" selection-start-column="54" selection-end-line="3" selection-end-column="54" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserService.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/services/UserService.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="18" column="21" lean-forward="true" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WorkoutService.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/services/WorkoutService.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="37" lean-forward="true" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -162,14 +154,11 @@
         <option value="$PROJECT_DIR$/public/styles.css" />
         <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/src/components/UserItem.js" />
-        <option value="$PROJECT_DIR$/src/services/UserService.js" />
         <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/components/WorkoutItem.js" />
         <option value="$PROJECT_DIR$/src/containers/ExerciseSearchList.js" />
         <option value="$PROJECT_DIR$/src/components/ExerciseItem.js" />
         <option value="$PROJECT_DIR$/src/containers/WorkoutEditor.js" />
-        <option value="$PROJECT_DIR$/src/services/ExerciseService.js" />
-        <option value="$PROJECT_DIR$/src/services/WorkoutService.js" />
         <option value="$PROJECT_DIR$/src/containers/AdminPage.js" />
         <option value="$PROJECT_DIR$/src/containers/ExerciseManager.js" />
         <option value="$PROJECT_DIR$/src/containers/Home.js" />
@@ -177,6 +166,9 @@
         <option value="$PROJECT_DIR$/src/containers/ProfileComponent.js" />
         <option value="$PROJECT_DIR$/src/containers/RegisterComponent.js" />
         <option value="$PROJECT_DIR$/src/containers/UserList.js" />
+        <option value="$PROJECT_DIR$/src/services/ExerciseService.js" />
+        <option value="$PROJECT_DIR$/src/services/UserService.js" />
+        <option value="$PROJECT_DIR$/src/services/WorkoutService.js" />
       </list>
     </option>
   </component>
@@ -291,12 +283,12 @@
       <option name="presentableId" value="Default" />
       <updated>1528982049411</updated>
       <workItem from="1528982050617" duration="13735000" />
-      <workItem from="1529530072783" duration="31829000" />
+      <workItem from="1529530072783" duration="32157000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45564000" />
+    <option name="totallyTimeSpent" value="45892000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="498" y="23" width="942" height="827" extended-state="0" />
@@ -493,14 +485,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/UserService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-595">
-          <caret line="38" column="10" lean-forward="true" selection-start-line="38" selection-start-column="10" selection-end-line="38" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/ExerciseItem.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="293">
@@ -508,22 +492,6 @@
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/ExerciseService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="412">
-          <caret line="83" column="5" lean-forward="true" selection-start-line="83" selection-start-column="5" selection-end-line="83" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/WorkoutService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="58" column="22" lean-forward="true" selection-start-line="58" selection-start-column="22" selection-end-line="58" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -611,11 +579,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/containers/WorkoutEditor.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-205">
-          <caret line="74" column="5" lean-forward="true" selection-start-line="74" selection-start-column="5" selection-end-line="74" selection-end-column="5" />
+        <state relative-caret-position="200">
+          <caret line="101" column="49" lean-forward="true" selection-start-line="101" selection-start-column="49" selection-end-line="101" selection-end-column="49" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/WorkoutService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="37" lean-forward="true" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/UserService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="21" lean-forward="true" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/ExerciseService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="54" lean-forward="false" selection-start-line="3" selection-start-column="54" selection-end-line="3" selection-end-column="54" />
+          <folding />
         </state>
       </provider>
     </entry>
