@@ -1,6 +1,6 @@
 let _singleton = Symbol();
 
-let HEROKU_URL = 'http://localhost:8080';
+let HEROKU_URL = 'https://cs4550-project.herokuapp.com';
 
 class WorkoutService {
     constructor(singletonToken) {
