@@ -259,7 +259,7 @@ export default class ProfileComponent extends React.Component {
                                 <i className="fa fa-sign-in"></i> Login
                             </Link>
                             <Link style={{paddingRight: 20, paddingLeft: 20, color: 'white'}}
-                                  hidden={this.state.loggedIn}
+                                  hidden={this.state.loggedIn && !this.state.admin}
                                   to={`/register`}>
                                 <i className="fa fa-user-plus"></i> Register
                             </Link>
@@ -302,7 +302,7 @@ export default class ProfileComponent extends React.Component {
                         </h3>
                     </div>
                 </div>
-                <div hidden={this.state.myUserId == this.state.userId}>
+                <div hidden={this.state.myUserId == this.state.userId || this.state.admin}>
                     <div className='container-fluid'
                          style={{backgroundColor: '#cce6ff', paddingTop: 20, paddingBottom: 40}}>
                         <form>
@@ -327,7 +327,7 @@ export default class ProfileComponent extends React.Component {
                         </form>
                     </div>
                 </div>
-                <div hidden={this.state.myUserId != this.state.userId}>
+                <div hidden={this.state.myUserId != this.state.userId && !this.state.admin}>
                     <div className='container-fluid'
                          style={{backgroundColor: '#cce6ff', paddingTop: 20, paddingBottom: 40}}>
                         <form>

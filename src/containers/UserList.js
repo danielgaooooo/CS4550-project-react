@@ -85,7 +85,7 @@ export default class UserList extends React.Component {
                                 <i className="fa fa-sign-in"></i> Login
                             </Link>
                             <Link style={{paddingRight: 20, paddingLeft: 20, color: 'white'}}
-                                  hidden={this.state.loggedIn}
+                                  hidden={this.state.loggedIn && !this.state.admin}
                                   to={`/register`}>
                                 <i className="fa fa-user-plus"></i> Register
                             </Link>
