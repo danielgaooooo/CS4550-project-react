@@ -53,10 +53,14 @@ export default class ProfileComponent extends React.Component {
     }
 
     favoriteWorkout(workoutId) {
-        let workouts = this.state.user.workouts.filter(workout => workout.id === workoutId);
-        let workout = Object.assign({}, workouts[0]);
-        this.workoutService.addWorkoutToUser(workout, this.state.myUserId)
-            .then(() => alert('Workout added to your profile!'));
+        if (this.state.loggedIn) {
+            let workouts = this.state.user.workouts.filter(workout => workout.id === workoutId);
+            let workout = Object.assign({}, workouts[0]);
+            this.workoutService.addWorkoutToUser(workout, this.state.myUserId)
+                .then(() => alert('Workout added to your profile!'));
+        } else {
+            alert('You must be logged in to favorite workouts.')
+        }
     }
 
     deleteExercise(exerciseId) {

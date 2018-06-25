@@ -1,5 +1,6 @@
 import React from 'react';
 import ExerciseService from "../services/ExerciseService";
+import UserService from "../services/UserService";
 
 export default class ExerciseItem extends React.Component {
     constructor(props) {
@@ -7,16 +8,29 @@ export default class ExerciseItem extends React.Component {
         this.state = {
             exerciseId: '',
             workoutId: '',
-            exercise: ''
+            exercise: '',
+            loggedIn: false
         };
         this.service = ExerciseService.instance;
+        this.userService = UserService.instance;
         this.renderExercise = this.renderExercise.bind(this);
+        this.checkIfLoggedIn = this.checkIfLoggedIn.bind(this);
         this.addExerciseToWorkout = this.addExerciseToWorkout.bind(this);
     }
 
     componentDidMount() {
         this.setExerciseId(this.props.match.params.exerciseId);
         this.setWorkoutId(this.props.match.params.workoutId);
+        this.checkIfLoggedIn();
+    }
+
+    checkIfLoggedIn() {
+        this.userService.checkIfLoggedIn()
+            .then(response => {
+                if (response.username !== null) {
+                    this.setState({loggedIn: true});
+                }
+            })
     }
 
     componentWillReceiveProps(newProps) {
@@ -26,8 +40,12 @@ export default class ExerciseItem extends React.Component {
     }
 
     addExerciseToWorkout() {
-        this.service.addExerciseToWorkout(this.state.exerciseId, this.state.workoutId)
-            .then(() => alert('Successfully added.'))
+        if (this.state.loggedIn) {
+            this.service.addExerciseToWorkout(this.state.exerciseId, this.state.workoutId)
+                .then(() => alert('Successfully added.'))
+        } else {
+            alert('You must be logged in to add exercises to workouts.')
+        }
     }
 
     setExerciseId(newId) {
