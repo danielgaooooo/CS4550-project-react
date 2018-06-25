@@ -53,23 +53,28 @@ export default class AdminPage extends React.Component {
         let users = null;
         if (this.state) {
             users = this.state.users.map(
-                (user) =>
-                    <li className='list-group-item'
-                        key={user.id}>
-                        {user.username}
-                        <Link to={`/profile/${user.id}`}>
-                            <button className='btn btn-primary float-right'
-                                    type='button'>
-                                View
-                            </button>
-                        </Link>
-                        <a className='float-right'>&nbsp;</a>
-                        <button className='btn btn-danger float-right'
-                                onClick={() => this.delete(user.id)}
-                                type='button'>
-                            Delete
-                        </button>
-                    </li>
+                (user) => {
+                    if (user.username !== 'admin') {
+                        return (
+                            <li className='list-group-item'
+                                key={user.id}>
+                                {user.username}
+                                <Link to={`/profile/${user.id}`}>
+                                    <button className='btn btn-primary float-right'
+                                            type='button'>
+                                        View
+                                    </button>
+                                </Link>
+                                <a className='float-right'>&nbsp;</a>
+                                <button className='btn btn-danger float-right'
+                                        onClick={() => this.delete(user.id)}
+                                        type='button'>
+                                    Delete
+                                </button>
+                            </li>
+                        )
+                    }
+                }
             );
         }
         return users;
@@ -109,7 +114,7 @@ export default class AdminPage extends React.Component {
                             </Link>
                             <Link style={{paddingLeft: 20, color: 'white'}}
                                   to={`/users`}>
-                                <i className="fa fa-search"></i> Find friends
+                                <i className="fa fa-search"></i> Users
                             </Link>
                             <Link style={{paddingLeft: 20, color: 'white'}}
                                   hidden={!this.state.loggedIn}

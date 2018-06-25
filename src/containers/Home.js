@@ -77,7 +77,7 @@ export default class Home extends React.Component {
                             </Link>
                             <Link style={{paddingLeft: 20, color: 'white'}}
                                   to={`/users`}>
-                                <i className="fa fa-search"></i> Find friends
+                                <i className="fa fa-search"></i> Users
                             </Link>
                             <Link style={{paddingLeft: 20, color: 'white'}}
                                   hidden={!this.state.loggedIn}
@@ -131,10 +131,12 @@ export default class Home extends React.Component {
                                     </ul>
                                 </div>
                             </div>
-                            <p>
-                                To get started, just register with the link above, or log in if you are
-                                already a member.
-                            </p>
+                            <div style={{paddingTop: 20}}>
+                                <p>
+                                    To get started, just register with the link above, or log in if you are
+                                    already a member.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>

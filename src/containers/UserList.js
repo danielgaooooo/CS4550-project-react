@@ -100,7 +100,7 @@ export default class UserList extends React.Component {
                             </Link>
                             <Link style={{paddingLeft: 20, color: 'white'}}
                                   to={`/users`}>
-                                <i className="fa fa-search"></i> Find friends
+                                <i className="fa fa-search"></i> Users
                             </Link>
                             <Link style={{paddingLeft: 20, color: 'white'}}
                                   hidden={!this.state.loggedIn}
