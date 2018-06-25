@@ -49,7 +49,18 @@ class WorkoutService {
         return fetch(HEROKU_URL + '/api/workout/' + workoutId, {
             method: 'delete',
             credentials: 'include'
-        })
+        });
+    }
+
+    addWorkoutToUser(workout, userId) {
+        return fetch(HEROKU_URL + '/api/user/' + userId + '/workout', {
+            method: 'post',
+            body: JSON.stringify(workout),
+            headers: {
+                'content-type': 'application/json'
+            },
+            credentials: 'include'
+        }).then(response => response.json());
     }
 
 }

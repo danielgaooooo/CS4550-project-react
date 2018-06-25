@@ -75,6 +75,13 @@ class ExerciseService {
             credentials: 'include'
         }).then(response => response.json());
     }
+
+    deleteExercise(exerciseId) {
+        return fetch(HEROKU_URL + '/api/exercise/' + exerciseId, {
+            method: 'delete',
+            credentials: 'include'
+        });
+    }
 }
 
 export default ExerciseService;

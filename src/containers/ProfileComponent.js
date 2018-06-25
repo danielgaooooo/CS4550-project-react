@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import UserService from "../services/UserService";
 import WorkoutService from "../services/WorkoutService";
+import ExerciseService from "../services/ExerciseService";
 
 
 export default class ProfileComponent extends React.Component {
@@ -32,8 +33,12 @@ export default class ProfileComponent extends React.Component {
         this.updateUser = this.updateUser.bind(this);
         this.renderWorkouts = this.renderWorkouts.bind(this);
         this.renderWorkoutExercises = this.renderWorkoutExercises.bind(this);
+        this.deleteExercise = this.deleteExercise.bind(this);
+        this.deleteWorkout = this.deleteWorkout.bind(this);
+        this.favoriteWorkout = this.favoriteWorkout.bind(this);
         this.service = UserService.instance;
         this.workoutService = WorkoutService.instance;
+        this.exerciseServce = ExerciseService.instance;
     }
 
     updateUser() {
@@ -45,6 +50,22 @@ export default class ProfileComponent extends React.Component {
     logout() {
         this.service.logout()
             .then(this.props.history.push('/'));
+    }
+
+    favoriteWorkout(workoutId) {
+        let workouts = this.state.user.workouts.filter(workout => workout.id === workoutId);
+        this.workoutService.addWorkoutToUser(workouts[0], this.state.myUserId)
+            .then(() => alert('Workout added to your profile!'));
+    }
+
+    deleteExercise(exerciseId) {
+        this.exerciseServce.deleteExercise(exerciseId)
+            .then(() => this.newUser(this.state.userId))
+    }
+
+    deleteWorkout(workoutId) {
+        this.workoutService.deleteWorkout(workoutId)
+            .then(() => this.newUser(this.state.userId))
     }
 
     changeUsername(event) {
@@ -161,10 +182,24 @@ export default class ProfileComponent extends React.Component {
         if (this.state) {
             workouts = this.state.user.workouts.map(
                 (workout) =>
-                    <div style={{paddingTop: 10}} key={workout.id}>
-                        <h5 className='list-group-item'>
-                            {workout.name}
-                        </h5>
+                    <div style={{paddingBottom: 20}} key={workout.id}>
+                        <ul className='list-group'>
+                            <li className='list-group-item'>
+                                <h4>{workout.name}</h4>
+                                {this.state.userId == this.state.myUserId &&
+                                <button className='btn float-right btn-danger'
+                                        onClick={() => this.deleteWorkout(workout.id)}
+                                        type='button'>
+                                    <i className='fa fa-trash'></i>
+                                </button>}
+                                {this.state.userId != this.state.myUserId &&
+                                <button className='btn float-right btn-danger'
+                                        onClick={() => this.favoriteWorkout(workout.id)}
+                                        type='button'>
+                                    <i className='fa fa-star'></i>
+                                </button>}
+                            </li>
+                        </ul>
                         <ul className='list-group'>
                             {this.renderWorkoutExercises(workout)}
                         </ul>
@@ -178,11 +213,28 @@ export default class ProfileComponent extends React.Component {
         let exercises = null;
         if (this.state) {
             exercises = workout.exercises.map(
-                exercise =>
-                    <li className='list-group-item'
-                        key={exercise.id}>
-                        {exercise.name}
-                    </li>
+                exercise => {
+                    if (this.state.userId != this.state.myUserId) {
+                        return (
+                            <li className='list-group-item'
+                                key={exercise.id}>
+                                {exercise.name}
+                            </li>
+                        )
+                    } else {
+                        return (
+                            <li className='list-group-item'
+                                key={exercise.id}>
+                                {exercise.name}
+                                <button className='btn float-right'
+                                        onClick={() => this.deleteExercise(exercise.id)}
+                                        type='button'>
+                                    <i className='fa fa-trash'></i>
+                                </button>
+                            </li>
+                        )
+                    }
+                }
             )
         }
         return exercises;

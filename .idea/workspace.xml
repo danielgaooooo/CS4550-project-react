@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87644280-68ac-499f-9cef-764f63318bac" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/components/WorkoutItem.js" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/components/ExerciseItem.js" afterPath="$PROJECT_DIR$/src/components/ExerciseItem.js" />
-      <change beforePath="$PROJECT_DIR$/src/containers/ExerciseManager.js" afterPath="$PROJECT_DIR$/src/containers/ExerciseManager.js" />
-      <change beforePath="$PROJECT_DIR$/src/containers/ExerciseSearchList.js" afterPath="$PROJECT_DIR$/src/containers/ExerciseSearchList.js" />
-      <change beforePath="$PROJECT_DIR$/src/containers/Home.js" afterPath="$PROJECT_DIR$/src/containers/Home.js" />
       <change beforePath="$PROJECT_DIR$/src/containers/ProfileComponent.js" afterPath="$PROJECT_DIR$/src/containers/ProfileComponent.js" />
-      <change beforePath="$PROJECT_DIR$/src/containers/WorkoutEditor.js" afterPath="$PROJECT_DIR$/src/containers/WorkoutEditor.js" />
       <change beforePath="$PROJECT_DIR$/src/services/ExerciseService.js" afterPath="$PROJECT_DIR$/src/services/ExerciseService.js" />
+      <change beforePath="$PROJECT_DIR$/src/services/WorkoutService.js" afterPath="$PROJECT_DIR$/src/services/WorkoutService.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -24,11 +19,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="WorkoutEditor.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="WorkoutEditor.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/containers/WorkoutEditor.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
-              <caret line="66" column="10" lean-forward="true" selection-start-line="66" selection-start-column="10" selection-end-line="66" selection-end-column="10" />
+            <state relative-caret-position="-156">
+              <caret line="74" column="5" lean-forward="true" selection-start-line="74" selection-start-column="5" selection-end-line="74" selection-end-column="5" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -49,8 +44,8 @@
       <file leaf-file-name="WorkoutService.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/services/WorkoutService.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="41" column="14" lean-forward="true" selection-start-line="41" selection-start-column="14" selection-end-line="41" selection-end-column="14" />
+            <state relative-caret-position="321">
+              <caret line="58" column="22" lean-forward="true" selection-start-line="58" selection-start-column="22" selection-end-line="58" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -68,11 +63,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProfileComponent.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ProfileComponent.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/containers/ProfileComponent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="163" column="47" lean-forward="false" selection-start-line="163" selection-start-column="47" selection-end-line="163" selection-end-column="47" />
+            <state relative-caret-position="282">
+              <caret line="53" column="0" lean-forward="true" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -119,8 +114,8 @@
       <file leaf-file-name="ExerciseService.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/services/ExerciseService.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="75" column="45" lean-forward="false" selection-start-line="75" selection-start-column="45" selection-end-line="75" selection-end-column="45" />
+            <state relative-caret-position="412">
+              <caret line="83" column="5" lean-forward="true" selection-start-line="83" selection-start-column="5" selection-end-line="83" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -174,13 +169,13 @@
         <option value="$PROJECT_DIR$/src/containers/AdminPage.js" />
         <option value="$PROJECT_DIR$/src/containers/Home.js" />
         <option value="$PROJECT_DIR$/src/components/WorkoutItem.js" />
-        <option value="$PROJECT_DIR$/src/services/WorkoutService.js" />
         <option value="$PROJECT_DIR$/src/containers/ExerciseManager.js" />
         <option value="$PROJECT_DIR$/src/containers/ExerciseSearchList.js" />
-        <option value="$PROJECT_DIR$/src/services/ExerciseService.js" />
         <option value="$PROJECT_DIR$/src/components/ExerciseItem.js" />
-        <option value="$PROJECT_DIR$/src/containers/ProfileComponent.js" />
         <option value="$PROJECT_DIR$/src/containers/WorkoutEditor.js" />
+        <option value="$PROJECT_DIR$/src/services/ExerciseService.js" />
+        <option value="$PROJECT_DIR$/src/services/WorkoutService.js" />
+        <option value="$PROJECT_DIR$/src/containers/ProfileComponent.js" />
       </list>
     </option>
   </component>
@@ -295,12 +290,12 @@
       <option name="presentableId" value="Default" />
       <updated>1528982049411</updated>
       <workItem from="1528982050617" duration="13735000" />
-      <workItem from="1529530072783" duration="29215000" />
+      <workItem from="1529530072783" duration="31349000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42950000" />
+    <option name="totallyTimeSpent" value="45084000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="498" y="23" width="942" height="827" extended-state="0" />
@@ -553,26 +548,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/ExerciseService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="75" column="45" lean-forward="false" selection-start-line="75" selection-start-column="45" selection-end-line="75" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/services/UserService.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-595">
           <caret line="38" column="10" lean-forward="true" selection-start-line="38" selection-start-column="10" selection-end-line="38" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/WorkoutService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="41" column="14" lean-forward="true" selection-start-line="41" selection-start-column="14" selection-end-line="41" selection-end-column="14" />
           <folding />
         </state>
       </provider>
@@ -597,16 +576,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/ProfileComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="163" column="47" lean-forward="false" selection-start-line="163" selection-start-column="47" selection-end-line="163" selection-end-column="47" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/WorkoutItem.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="116">
@@ -619,8 +588,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/containers/WorkoutEditor.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="66" column="10" lean-forward="true" selection-start-line="66" selection-start-column="10" selection-end-line="66" selection-end-column="10" />
+        <state relative-caret-position="-156">
+          <caret line="74" column="5" lean-forward="true" selection-start-line="74" selection-start-column="5" selection-end-line="74" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/ExerciseService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="412">
+          <caret line="83" column="5" lean-forward="true" selection-start-line="83" selection-start-column="5" selection-end-line="83" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/WorkoutService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="321">
+          <caret line="58" column="22" lean-forward="true" selection-start-line="58" selection-start-column="22" selection-end-line="58" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/ProfileComponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="53" column="0" lean-forward="true" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
